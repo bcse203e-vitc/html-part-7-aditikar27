@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second Largest Number</title>
+</head>
+<body>
+    <h2>Find the Second Largest Number</h2>
+    <input type="text" id="numberInput" placeholder="Enter numbers separated by commas">
+    <button onclick="findSecondLargest()">Find Second Largest</button>
+    <p id="secondLargestResult"></p>
+
+    <script>
+        function findSecondLargest() {
+            let input = document.getElementById("numberInput").value;
+            let arr = input.split(",").map(num => parseInt(num.trim()));
+            let uniqueArr = [...new Set(arr)].sort((a, b) => b - a);
+
+            let result = uniqueArr.length > 1 ? uniqueArr[1] : "Not enough unique numbers";
+            document.getElementById("secondLargestResult").innerText = "Second Largest: " + result;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Duplicates</title>
+</head>
+<body>
+    <h2>Find Duplicates in an Array</h2>
+    <input type="text" id="duplicatesInput" placeholder="Enter numbers separated by commas">
+    <button onclick="findDuplicates()">Find Duplicates</button>
+    <p id="duplicateResult"></p>
+
+    <script>
+        function findDuplicates() {
+            let input = document.getElementById("duplicatesInput").value;
+            let arr = input.split(",").map(num => parseInt(num.trim()));
+            let seen = new Set();
+            let duplicates = new Set();
+
+            arr.forEach(num => seen.has(num) ? duplicates.add(num) : seen.add(num));
+
+            document.getElementById("duplicateResult").innerText = 
+                "Duplicates: " + [...duplicates].join(", ");
+        }
+    </script>
+</body>
+</html>
