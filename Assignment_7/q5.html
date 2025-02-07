@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Counter</title>
+</head>
+<body>
+
+<h2>Character Counter</h2>
+<input type="text" id="word" placeholder="Enter a word" required >
+
+
+<button onclick="count()">Count</button>
+<p id="result"></p>
+
+<script>
+    function count() {
+        const word = (document.getElementById('word').value).toString();
+        const vowels = "aeiou";
+        const numbers = "1234567890";
+        let countVowel = 0;
+        let countChar = 0;
+        for (let i = 0; i < word.length; i++) {
+            if(vowels.includes(word.charAt(i).toLowerCase())){
+                countVowel++;
+            }
+            if(numbers.includes(word.charAt(i).toLowerCase())){
+                continue;
+            }
+            else{
+                countChar++;
+            }
+        }
+        
+        document.getElementById('result').innerText = "Character Count : " + countChar + " Vowel Count : " + countVowel; 
+       
+        
+    }
+</script>
+
+</body>
+</html>
